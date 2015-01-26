@@ -16,10 +16,10 @@
         <splash src="res/screen/android/splash.png" density="land-mdpi"/>
         <splash src="res/screen/android/splash.png" density="land-xhdpi"/>-->
 
-        <splash src="res/screen/android/splash.png" density="port-hdpi"/>
-        <splash src="res/screen/android/splash.png" density="port-ldpi"/>
-        <splash src="res/screen/android/splash.png" density="port-mdpi"/>
-        <splash src="res/screen/android/splash.png" density="port-xhdpi"/>
+        <splash src="res/screen/android/screen-hdpi-portrait.png" density="port-hdpi"/>
+        <splash src="res/screen/android/screen-ldpi-portrait.png" density="port-ldpi"/>
+        <splash src="res/screen/android/screen-mdpi-portrait.png" density="port-mdpi"/>
+        <splash src="res/screen/android/screen-xhdpi-portrait.png" density="port-xhdpi"/>
     </platform>
 
     <!--PREFERENCIAS-->
@@ -39,7 +39,7 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
-
+    <preference name="SplashScreenDelay" value="5000" />
     <!--PLUGINS -->
     <!-- <gap:plugin name="org.apache.cordova.battery-status" /> -->
     <gap:plugin name="org.apache.cordova.camera" />
