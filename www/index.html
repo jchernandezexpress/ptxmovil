@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+        <!--CSS INICIO -->
+        <link href="css/theme-roller-2014-12-10-1033am.css" rel="stylesheet" type="text/css" />
+        <link href="css/jqm-survival-kit.css" rel="stylesheet" type="text/css" />
+        <link href="css/overrides.css" rel="stylesheet" type="text/css" />
+        <link href="css/google.css" rel="stylesheet" type="text/css" />
+        <link href="css/jquery.mobile.icons-1.4.5.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" type="text/css" />
+        <style>
+            @font-face {
+                font-family: 'Roboto Light';
+                src: url('css/fonts/Roboto-Light.ttf');
+            }
+            body,
+            a,
+            span,
+            p,
+            a.ui-alt-icon,
+            li h2,
+            li,
+            .ui-footer-fixed,
+            .ui-btn,
+            .ui-bar,
+            .ui-content {
+                font-family: Roboto;
+                font-weight: 100 !important;
+            }
+
+            .nav-glyphish-example .ui-btn {
+                padding-top: 40px !important;
+            }
+            .nav-glyphish-example .ui-btn:after {
+                width: 30px!important;
+                height: 30px!important;
+                margin-left: -15px !important;
+                box-shadow: none!important;
+                -moz-box-shadow: none!important;
+                -webkit-box-shadow: none!important;
+                -webkit-border-radius: 0 !important;
+                border-radius: 0 !important;
+            }
+
+
+            #rastreos:after {
+                background: url("css/images/glyphish-icons/09-chat2.png") 50% 50% no-repeat;
+                background-size: 24px 22px;
+            }
+            #sucursales:after {
+                background: url("css/images/glyphish-icons/18-envelope.png") 50% 50% no-repeat;
+                background-size: 24px 16px;
+            }
+            #notificar:after {
+                background: url("css/images/glyphish-icons/30-key.png") 50% 50% no-repeat;
+                background-size: 12px 26px;
+            }
+            #cotizador:after {
+                background: url("css/images/glyphish-icons/88-beermug.png") 50% 50% no-repeat;
+                background-size: 22px 27px;
+            }
+            #ayuda:after {
+                background: url("css/images/glyphish-icons/100-coffee.png") 50% 50% no-repeat;
+                background-size: 20px 24px;
+            }
+
+        </style>
+        <!-- CSS FIN -->
+
+        <!-- JS INICIO-->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/personalizados/utiles.js" type="text/javascript"></script>
+        <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            app.initialize();
+            $(document).ready(function(){
+                //Funcion que obtiene los datos del rastreo
+                $("input[data-type='search']").keyup(function(e){
+                    var rastreo = $("input[data-type='search']").val();
+                    var tecla = (e.keyCode ? e.keyCode : e.which);
+                    if(tecla==13)
+                    {
+                        ultimoRastreo(rastreo);
+                        $("#busqueda").listview('refresh');
+                    }
+                });//Termina la funcion input[data-type['search'].keyup
+                //Evento que se detona cuando se selecciona un elemento de la lista de rastreos
+                $("#busqueda").click(function (){
+                    var rastreo = $('ul#busqueda li:first').attr('id');
+                    window.localStorage.setItem("rastreo", rastreo);
+                    historialRastreo(rastreo);     
+                    $.mobile.loading( "show" );
+                   
+                });
+            });//Find del Document ready
+            //Eveto que se desencadena antes de mostrar la pagina "historial"
+            $(document).on('pagebeforeshow', '#historial', function(){ 
+                var rastreo = window.localStorage.getItem("rastreo");
+                $.mobile.loading( "show" );
+                 
+            });
+            //Evento que se desencadena cuando la pagina "historial" esta cargada
+            $(document).on("pageshow","#historial",function(){
+                
+            });
+        </script>
+        <!-- JS FIN -->
+        <title>Paquetexpress</title>
+    </head>
+    <body>
+        <!-- ************************************************** -->
+        <!-- PAGINA HOME -->
+        <!-- ************************************************** -->
+        <div data-role = "page" id="inicio" data-theme="d">
+            <!-- ************************************************** -->
+            <!--HOME HEADER INICIO-->
+            <!-- ************************************************** -->
+            <div data-role="header" style="overflow:hidden;" data-position="fixed" data-tap-toggle="false" data-theme="b">
+                <nav data-role="navbar" data-inset="true">
+                    <div class="ui-bar">
+                        <button href="#" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-icon-info ui-btn-icon-notext">
+                            Ayuda
+                        </button>
+
+                        <p class="centered">
+                            <img src="img/logo/logo-inv.svg" style="max-width:135px; max-height:40px;">
+                        </p>
+
+                        <button href="#" class="ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-icon-camera ui-btn-icon-notext">
+                            Escanear
+                        </button>
+                    </div>
+                </nav>
+            <!-- ************************************************** -->
+            </div><!--HOME: HEADER FIN-->
+            <!-- ************************************************** -->
+
+            <!-- ************************************************** -->
+            <!--HOME MAIN INICIO-->
+            <!-- ************************************************** -->
+            <div role="main" class="ui-content">
+                <ul id="busqueda" data-role="listview" data-filter="true" data-filter-placeholder="Ingrese Rastreo, Guía o Delivery" data-theme="a">
+                <!--<li data-icon="carat-r-custom" id='21134214342'>
+                    <a href="#historial"><img src="img/elements/rastreo-(caja).png" alt="" class="ui-li-icon">
+                        <p class="ui-li-aside bg-green centered"> Prueba <strong> 1:24</strong>PM</p>
+                        <span class="green">
+                                21134214342
+                        </span>
+                    </a>
+                </li>-->
+            </ul>
+            <!-- ************************************************** -->
+            </div><!--HOME: MAIN FINAL -->
+            <!-- ************************************************** -->
+
+            <!-- ************************************************** -->
+            <!-- HOME: FOOTER INICIO-->
+            <!-- ************************************************** -->
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-theme="b">
+                <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+                    <ul>
+                        <li><a href="#" id="rastreos" data-icon="custom">Rastreos</a>
+                        </li>
+                        <li><a href="#" id="sucursales" data-icon="custom">Sucursales</a>
+                        </li>
+                        <li><a href="#" id="notificar" data-icon="custom">Notificar</a>
+                        </li>
+                        <li><a href="#" id="cotizador" data-icon="custom">Cotizador</a>
+                        </li>
+                        <li><a href="#" id="ayuda" data-icon="custom">Ayuda</a>
+                        </li>
+                    </ul>
+                </div>
+            <!-- ************************************************** -->
+            </div><!-- HOME: FOOTER FINAL-->
+            <!-- ************************************************** -->
+
+        <!-- ************************************************** -->
+        </div><!--HOME FINAL-->
+        <!-- ************************************************** -->
+
+        <!-- ************************************************** -->
+        <!-- PAGINA HISTORIAL -->
+        <!-- ************************************************** -->
+        <div data-role = "page" id="historial" data-theme="d">
+            <!-- ************************************************** -->
+            <!--HISTORIAL INICIO-->
+            <!-- ************************************************** -->
+            <div data-role="header" style="overflow:hidden;" data-position="fixed" data-tap-toggle="false" data-theme="b">
+                <nav data-role="navbar" data-inset="true">
+                    <div class="ui-bar">
+                        <a href="#" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-icon-back ui-btn-icon-notext" data-role="button" data-rel="back">
+                            Regresar
+                        </a>
+
+                        <p class="centered">
+                            <img src="img/logo/logo-inv.svg" style="max-width:135px; max-height:40px;">
+                        </p>
+
+                        <button href="#" class="ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-icon-camera ui-btn-icon-notext">
+                            Escanear
+                        </button>
+                    </div>
+                </nav>
+            <!-- ************************************************** -->
+            </div><!--HISTORIAL: HEADER FIN-->
+            <!-- ************************************************** -->
+
+            <!-- ************************************************** -->
+            <!--HISTORIAL MAIN INICIO-->
+            <!-- ************************************************** -->
+            <div role="main" class="ui-content">
+                <ul class="gNow" id="ul_historico">
+                    <!--AQUI VAN LAS TARJETAS DEL HISTORIAL -->
+                </ul>
+            <!-- ************************************************** -->
+            </div><!--HISTORIAL: MAIN FINAL -->
+            <!-- ************************************************** -->
+
+            <!-- ************************************************** -->
+            <!-- HISTORIAL: FOOTER INICIO-->
+            <!-- ************************************************** -->
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-theme="b">
+                <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+                    <ul>
+                        <li><a href="#" id="rastreos" data-icon="custom">Rastreos</a>
+                        </li>
+                        <li><a href="#" id="sucursales" data-icon="custom">Sucursales</a>
+                        </li>
+                        <li><a href="#" id="notificar" data-icon="custom">Notificar</a>
+                        </li>
+                        <li><a href="#" id="cotizador" data-icon="custom">Cotizador</a>
+                        </li>
+                        <li><a href="#" id="ayuda" data-icon="custom">Ayuda</a>
+                        </li>
+                    </ul>
+                </div>
+            <!-- ************************************************** -->
+            </div><!-- HOME: FOOTER INICIO-->
+            <!-- ************************************************** -->
+
+        <!-- ************************************************** -->
+        </div><!--HOME FINAL-->
+        <!-- ************************************************** -->
+    </body>
+</html>

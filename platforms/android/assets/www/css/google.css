@@ -1,0 +1,61 @@
+/**
+ * "Google Now" Card
+ */
+body {
+	background: #e1e1e1;
+	min-height: 100%;
+	margin: 0 auto;
+}
+ul.gNow {
+	width: 92%;
+	height: 100%;
+	float: left;
+	margin: 0px -20px 20px 0px;
+	padding: 0;
+}
+ul.gNow li {
+	width: 100%;
+	float: left;
+	list-style: none;
+	padding: 5px;
+}
+div.card {
+	background: #fff;
+	width: 100%;
+	position: relative;
+	padding: 10px;
+	box-shadow: 0px 3px rgba( 0, 0, 0, 0.1 );
+	font-family: Open Sans;
+	color: #444;
+	font-size: 14px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	}
+	div.card p {
+		margin: 0 0 15px 15px;
+	}
+	div.card p.card-title {
+		font-size: 28px;
+	}
+	div.card p.url {
+		border-top: 1px solid #e5e5e5;
+		background-image: url('images/icons-png/url.png');
+		background-repeat: no-repeat;
+		padding: 6px 0 0 30px;
+		height: 30px;
+		display: block;
+		margin-bottom: -10px;
+	}
+	div.card p.url a {
+		color: #04bff4;
+		text-decoration: none;
+		top: 4px;
+		width: 385px;
+		display: block;
+		position: relative;
+	}
+	div.card img.full {
+	width: 430px;
+	margin: 0 0 15px -15px;
+	}

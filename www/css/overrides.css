@@ -1,0 +1,534 @@
+/*  CSS Document - jQuery Mobile Overrides                */
+/* Swatch A Overrides */
+/* color azul oficial
+#0D4E94
+*/
+
+
+.container-fillcaja {
+    position: relative;
+    width: 90px;
+    height: 90px;
+}
+.container-fillcaja:hover .filled {
+    height: 90px;
+    transition: height 1s ease;
+}
+.container-fillcaja .filled {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 90px;
+    height: 30px;
+    background-color: green;
+    transform-origin(10px);
+}
+.container-fillcaja img {
+    position: absolute;
+    z-index: 1;
+}
+
+/*
+http://stackoverflow.com/questions/18894124/cant-completely-get-rid-of-tap-highlight-color-in-phonegap-3-0-app-on-android-4
+http://phonegap-tips.com/articles/essential-phonegap-css-webkit-tap-highlight-color.html
+*/
+
+a {
+    /*	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0); */
+    
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    -webkit-tap-highlight-color: transparent;
+    /* For some Androids */
+}
+.ui-page-theme-a .ui-btn:active, html .ui-bar-a .ui-btn:active, html .ui-body-a .ui-btn:active, html body .ui-group-theme-a .ui-btn:active, html head + body .ui-btn.ui-btn-a:active, .ui-page-theme-a .ui-btn:hover, html .ui-bar-a .ui-btn:hover, html .ui-body-a .ui-btn:hover, html body .ui-group-theme-a .ui-btn:hover, html head + body .ui-btn.ui-btn-a:hover {
+    background-color: transparent;
+    /*{a-bdown-background-color} */
+    
+    color: #3388cc;
+    /*{a-bdown-color}*/
+    
+    text-shadow: 0;
+    /*{a-bdown-shadow-x}*/
+}
+#home > div.ui-header.ui-bar-b.ui-header-fixed.slidedown > div > form > div > table > tbody > tr > td:nth-child(1) > div {
+    margin: 0.5em;
+}
+h2, h3, h4, p, span {
+    margin: 0;
+    font-weight: normal;
+}
+.ui-btn.ui-btn-c:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+html head + body .ui-btn.ui-btn-b {
+    border: none;
+}
+/* bordes en listview */
+/*
+.ui-listview>li.ui-first-child, .ui-listview>li.ui-first-child>a.ui-btn {
+-webkit-border-top-right-radius: 0;
+border-radius: 0;
+-webkit-border-top-left-radius: 0;
+}
+.ui-listview>li.ui-last-child, .ui-listview>li.ui-last-child>a.ui-btn {
+-webkit-border-bottom-right-radius: 0;
+-webkit-border-bottom-left-radius: 0;
+}
+*/
+/* <!-- /bordes en listview --> */
+/*
+#home .ui-content:first-child {
+padding-top: 0.5em;
+} 
+*/
+/*.ui-content {
+padding-bottom: 0.5em;
+padding-top: 1em;
+}*/
+
+#home form {
+    font-size: 0.9em;
+}
+/*
+.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
+text-shadow: none;
+}
+*/
+
+.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head + body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head + body .ui-btn.ui-btn-a:visited {
+    /*border-color: #dddddd;*/
+    
+    text-shadow: none;
+    /*border: none;*/
+}
+.ui-page-theme-a .ui-bar-inherit {
+    border-color: transparent;
+}
+/*
+.ui-field-contain, .ui-mobile fieldset.ui-field-contain {
+padding-top: 0;
+}
+*/
+/* styling Label de Search */
+
+div.ui-header.ui-bar-inherit.ui-header-fixed.slidedown > div > form > div > label {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+a.ui-btn.ui-corner-all.ui-btn-b.ui-icon-camera.ui-btn-icon-notext {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.padding-1em {
+    padding: 1em .5em;
+}
+/* Styling search box */
+
+.no-margin-top-bottom {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.ui-page-theme-a .ui-btn {
+    border: none;
+}
+html body .ui-group-theme-a .ui-btn {
+    border-color: #dddddd;
+}
+/* Carat-Right in Button */
+
+.ui-icon-carat-r-custom:after {
+    background-image: url("../js/images/icons-svg/carat-r-blue.svg");
+}
+/* Fallback */
+
+.ui-nosvg .ui-icon-carat-r-custom:after {
+    background-image: url("../js/images/icons-png/carat-r-blue.png");
+}
+/* Carat-Right in Listview*/
+
+.ui-icon-carat-r-custom:after {
+    background-image: url("../js/images/icons-png/carat-r-blue.png") !important;
+    background-position: 3px 3px !important;
+    background-size: 70% !important;
+}
+/* Carat-Left in Button */
+
+.ui-icon-carat-l-custom:after {
+    background-image: url("../js/images/icons-svg/carat-l-blue.svg");
+}
+/* Fallback */
+
+.ui-nosvg .ui-icon-carat-l-custom:after {
+    background-image: url("../js/images/icons-png/carat-l-blue.png");
+}
+/* Carat-Left in Listview*/
+
+.ui-icon-carat-l-custom:after {
+    background-image: url("../js/images/icons-png/carat-l-blue.png") !important;
+    background-position: 3px 3px !important;
+    background-size: 70% !important;
+}
+/* Carat-Up in Button */
+
+.ui-icon-carat-u-custom:after {
+    background-image: url("../js/images/icons-svg/carat-u-blue.svg");
+}
+/* Fallback */
+
+.ui-nosvg .ui-icon-carat-u-custom:after {
+    background-image: url("../js/images/icons-png/carat-u-blue.png");
+}
+/* Carat-Up in Listview*/
+
+.ui-icon-carat-u-custom:after {
+    background-image: url("../js/images/icons-png/carat-u-blue.png") !important;
+    background-position: 3px 3px !important;
+    background-size: 70% !important;
+}
+/* Carat-Up in Listview*/
+
+.ui-icon-carat-u-o20-custom:after {
+    background-image: url("../js/images/icons-png/carat-u-blue.png") !important;
+    background-position: 3px 3px !important;
+    background-size: 70% !important;
+    opacity: 0.4;
+}
+/* Carat-Down in Button */
+
+.ui-icon-carat-d-custom:after {
+    background-image: url("../js/images/icons-svg/carat-d-blue.svg");
+}
+/* Fallback */
+
+.ui-nosvg .ui-icon-carat-d-custom:after {
+    background-image: url("../js/images/icons-png/carat-d-blue.png");
+}
+/* Carat-Down in Listview*/
+
+.ui-icon-carat-d-custom:after {
+    background-image: url("../js/images/icons-png/carat-d-blue.png") !important;
+    background-position: 3px 3px !important;
+    background-size: 70% !important;
+}
+/* Carat-Down in Listview*/
+
+.ui-icon-carat-d-o20-custom:after {
+    background-image: url("../js/images/icons-png/carat-d-blue.png") !important;
+    background-position: 3px 3px !important;
+    background-size: 70% !important;
+    opacity: 0.4;
+}
+.green {
+    color: #00B123;
+}
+/* resultado Entregado */
+
+.bg-green {
+    color: white;
+    background-color: #00B123;
+    padding: 0.2em;
+}
+/* usado para Nav Bar */
+
+.centered {
+    text-align: center;
+}
+/* para Pasos */
+
+.centered-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+/* */
+
+.no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.ui-mobile label, .ui-controlgroup-label #home > div.ui-header.ui-bar-inherit.ui-header-fixed.slidedown > div > form > div > label {
+    display: inline-block;
+}
+/* 
+HOME 
+List View más chica 
+Antes: 80px
+Ahora: 64px
+Más espacio
+*/
+
+.ui-listview .ui-li-has-thumb > img:first-child, .ui-listview .ui-li-has-thumb > .ui-btn > img:first-child, .ui-listview .ui-li-has-thumb .ui-li-thumb {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-height: 4.6em;
+    max-width: 4.6em;
+}
+.ui-listview > .ui-li-has-thumb > .ui-btn, .ui-listview > .ui-li-static.ui-li-has-thumb {
+    min-height: 3.1em;
+}
+/* Home, espacios */
+
+#home > div.ui-header.ui-bar-inherit.ui-header-fixed.slidedown > div > form > div > table > tbody > tr > td:nth-child(1) > div, #home > div.ui-header.ui-bar-inherit.ui-header-fixed.slidedown > div > form > div > table > tbody > tr > td:nth-child(2) > a, #home > div.ui-header.ui-bar-inherit.ui-header-fixed.slidedown > div > form > div > a {
+    margin: 0;
+}
+#home > div.ui-header.ui-bar-inherit.ui-header-fixed.slidedown > div > form > div > a {
+    margin-bottom: 0.2em;
+}
+/* Para que Tabla Resultados de Rastreo quepa en iPhone 4 
+:) 
+*/
+/*
+.ui-table th, 
+.ui-table td {
+line-height: 1.4em;
+}
+*/
+/*
+
+TABLA 
+
+*/
+/* tabla sucursales */
+/* These apply across all breakpoints because they are outside of a media query */
+/* Make the labels light gray all caps across the board */
+
+.sucursal-list thead th, .sucursal-list tbody th .ui-table-cell-label, .sucursal-list tbody td .ui-table-cell-label {
+    text-transform: uppercase;
+    font-size: .7em;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: normal;
+}
+/* White bg, large blue text for rank and title */
+
+.sucursal-list tbody th {
+    font-size: 1.2em;
+    background-color: #fff;
+    color: #77bbff;
+    text-align: center;
+}
+/*  Add a bit of extra left padding for the title */
+
+.sucursal-list tbody td.title {
+    padding-left: .8em;
+}
+/* Add strokes */
+/* first is non-RGBA fallback */
+/*
+.sucursal-list thead th {
+	border-bottom: 1px solid #ffffff; 
+	border-bottom: 1px solid rgba(255,255,255,.8);
+}
+*/
+/* first is for non-RGBA fallback  */
+/*
+.sucursal-list tbody th,
+.sucursal-list tbody td {
+	border-bottom: 1px solid #e6e6e6; 
+	border-bottom: 1px solid rgba(255,255,255,.8);
+}
+*/
+/*  Custom stacked styles for mobile sizes */
+/*  Use a max-width media query so we don't have to undo these styles */
+
+@media (max-width: 40em) {
+    /*  Negate the margin between sections */
+    
+    .sucursal-list tbody th {
+        margin-top: 0;
+        text-align: left;
+    }
+    /*  White bg, large blue text for rank and title */
+    
+    .sucursal-list tbody th, .sucursal-list tbody td.title {
+        display: block;
+        font-size: 1.2em;
+        line-height: 110%;
+        padding: .5em .5em .2em .5em;
+        background-color: #fff;
+        color: black;
+        font-weight: normal;
+    }
+    /*  Hide labels for rank and title */
+    
+    .sucursal-list tbody th .ui-table-cell-label, .sucursal-list tbody td.title .ui-table-cell-label {
+        display: none;
+    }
+    /*  Position the title next to the rank, pad to the left */
+    
+    .sucursal-list tbody td.title {
+        margin-top: -2.1em;
+        padding-left: 2.2em;
+        border-bottom: 1px solid rgba(0, 0, 0, .15);
+    }
+    /*  Make the data bold */
+    /*
+	.sucursal-list th,
+	.sucursal-list td {
+	font-weight: bold;
+	}
+	*/
+    /* Make the label elements a percentage width */
+    
+    .sucursal-list td .ui-table-cell-label, .sucursal-list th .ui-table-cell-label {
+        min-width: 20%;
+    }
+}
+/* Media query to show as a standard table at wider widths */
+
+@media ( min-width: 40em) {
+    /* Show the table header rows */
+    
+    .sucursal-list td, .sucursal-list th, .sucursal-list tbody th, .sucursal-list tbody td, .sucursal-list thead td, .sucursal-list thead th {
+        display: table-cell;
+        margin: 0;
+    }
+    /* Hide the labels in each cell */
+    
+    .sucursal-list td .ui-table-cell-label, .sucursal-list th .ui-table-cell-label {
+        display: none;
+    }
+}
+/* Hack to make IE9 and WP7.5 treat cells like block level elements */
+/* Applied in a max-width media query up to the table layout breakpoint so we don't need to negate this */
+
+@media ( max-width: 40em) {
+    .sucursal-list td, .sucursal-list th {
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        float: left;
+        clear: left;
+    }
+}
+/* Sucursales busqueda sin acento */
+
+.visually-hidden {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .visually-hidden button {
+    display: none !important;
+}
+/* Resultados de Rastreo
+Info adicional del envio */
+
+li.ui-li-static {
+    font-size: small;
+}
+/* Line Break en List view (sucursales, resultados de entrega)*/
+
+.rwd-line {
+    display: block;
+}
+@media screen and (min-width: 768px) {
+    .rwd-line {
+        display: inline;
+    }
+}
+/* Start with default styles for phone-sized devices */
+/*
+    p,li{
+        font-size: 1.9em;
+    }
+    h1{
+        font-size: 2.2em;
+    }
+    h2{font-size: 1.5em;}
+    h3{font-size: 1em}
+
+    button{
+        width: 24px;
+        height: 12px;
+    }
+    button.nav{
+        background-image: url('img/phone/nav.png');
+    }
+*/
+/* 7" tablets */
+/*
+@media only screen and (min-device-width : 768px) {
+    p, li{
+        font-size: 1.3em !important;
+    }
+    h1{
+        font-size: 1.6em !important;
+    }
+    button{
+          width: 32px;
+          height: 16px;
+    }
+    button.nav{
+        background-image: url('img/tablet7/nav.png');
+    }
+}
+*/
+/* 10" tablets and iPad */
+/*
+@media only screen and (min-device-width : 1024px) { 
+    p, li{
+        font-size: 1.5em !important;
+    }
+    h1{
+        font-size: 1.8em !important;
+    }
+    button{
+        width: 48px;
+        height: 24px;
+    }
+    button.nav{
+        background-image: url('img/tablet10/nav.png');
+    }
+}
+*/
+/*
+https://forum.jquery.com/topic/font-size-not-scaling-with-jquerymobile-phonegap
+I tried with em, % and pt , but not worked...
+
+Finally I tried with responsive design as :
+
+Its working fine when i dont specify any font styling in the code ...
+But in some cases where i need to have a different font size, there when i specify with either % or em or pt , 
+*/
+/*
+@media (min-width: 500px) {
+    html {
+        font-size: 70%;
+    }
+}
+
+@media (min-width: 700px) {
+    html {
+        font-size: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: 120%;
+    }
+}
+*/
+/*
+http://sintaxi.com/you-half-assed-it
+*/
+
+#resultado_muestra {
+    opacity: 0;
+    -moz-transition: opacity .15s ease-in-out;
+    -webkit-transition: opacity .15s ease-in-out;
+    transition: opacity .15s ease-in-out;
+}
+#resultado_muestra.faded-in {
+    opacity: 1;
+}
