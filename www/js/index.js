@@ -21,6 +21,6 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         console.log("Aplicación lista");
-        navigator.splashscreen.hide();
+        navigator.splashscreen.show();
     }
 };
