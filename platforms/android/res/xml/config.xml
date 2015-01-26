@@ -10,10 +10,10 @@
     <feature name="Toast">
         <param name="android-package" value="nl.xservices.plugins.Toast" />
     </feature>
-    <splash density="port-hdpi" src="res/screen/android/splash.png" />
-    <splash density="port-ldpi" src="res/screen/android/splash.png" />
-    <splash density="port-mdpi" src="res/screen/android/splash.png" />
-    <splash density="port-xhdpi" src="res/screen/android/splash.png" />
+    <splash density="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
+    <splash density="port-ldpi" src="res/screen/android/screen-ldpi-portrait.png" />
+    <splash density="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />
+    <splash density="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
     <name>Paquetexpress</name>
     <description>
         Paquetexpress - A México y a todo el Mundo - Rastreo, Localización, Escaneo de Códigos.
@@ -37,6 +37,7 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
+    <preference name="SplashScreenDelay" value="5000" />
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.geolocation" />
     <gap:plugin name="org.apache.cordova.network-information" />
