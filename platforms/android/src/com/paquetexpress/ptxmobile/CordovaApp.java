@@ -31,6 +31,6 @@ public class CordovaApp extends CordovaActivity
         super.onCreate(savedInstanceState);
         super.init();
         // Set by <content src="index.html" /> in config.xml
-        loadUrl(launchUrl);
+        loadUrl(launchUrl,8000);
     }
 }

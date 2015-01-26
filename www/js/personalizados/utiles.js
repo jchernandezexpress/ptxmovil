@@ -119,7 +119,7 @@ function showConfirm() {
         'Desea cerrar la applicación?',  // message
         exitFromApp,              // callback to invoke with index of button pressed
         'Salir',            // title
-        'Cancelar,Si'         // buttonLabels
+        ['No','Si']         // buttonLabels
     );
 }
 function exitFromApp(buttonIndex) {
@@ -131,12 +131,6 @@ function exitFromApp(buttonIndex) {
 //y ademas se presiona la tecla "atras"
 document.addEventListener("backbutton", function(e){
     if($.mobile.activePage.is('#inicio')){
-        /* 
-         Event preventDefault/stopPropagation not required as adding backbutton
-          listener itself override the default behaviour. Refer below PhoneGap link.
-        */
-        //e.preventDefault();
-        //Pregunta si deseas salir de la aplicación
         showConfirm();
     }
     else {

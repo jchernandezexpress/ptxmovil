@@ -40,7 +40,7 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
     <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="8000" />
+    <preference name="SplashScreenDelay" value="10000" />
     <!--PLUGINS -->
     <!-- <gap:plugin name="org.apache.cordova.battery-status" /> -->
     <gap:plugin name="org.apache.cordova.camera" />
