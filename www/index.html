@@ -99,6 +99,20 @@
                     $.mobile.loading( "show" );
                    
                 });
+                //Evento que se desencadena al querer cerrar la applicación
+                function showConfirm() {
+                    navigator.notification.confirm(
+                        'Desea cerrar la applicación?',  // message
+                        exitFromApp,              // callback to invoke with index of button pressed
+                        'Salir',            // title
+                        'Cancelar,Si'         // buttonLabels
+                    );
+                }
+                function exitFromApp(buttonIndex) {
+                  if (buttonIndex==2){
+                    navigator.app.exitApp();
+                    }
+                }
             });//Find del Document ready
             //Eveto que se desencadena antes de mostrar la pagina "historial"
             $(document).on('pagebeforeshow', '#historial', function(){ 

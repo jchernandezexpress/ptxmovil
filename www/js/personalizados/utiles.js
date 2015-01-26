@@ -113,3 +113,19 @@ function historialRastreo(rastreo){
 		alert("No has ingresado numero de rastreo");
 	}
 }
+//Funcion que detecta si se encuentra en la pagina de inicio 
+//y ademas se presiona la tecla "atras"
+document.addEventListener("backbutton", function(e){
+    if($.mobile.activePage.is('#inicio')){
+        /* 
+         Event preventDefault/stopPropagation not required as adding backbutton
+          listener itself override the default behaviour. Refer below PhoneGap link.
+        */
+        //e.preventDefault();
+        //Pregunta si deseas salir de la aplicación
+        showConfirm();
+    }
+    else {
+        navigator.app.backHistory()
+    }
+}, false);
