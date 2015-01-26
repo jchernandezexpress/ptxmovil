@@ -113,6 +113,20 @@ function historialRastreo(rastreo){
 		alert("No has ingresado numero de rastreo");
 	}
 }
+//Evento que se desencadena al querer cerrar la applicación
+function showConfirm() {
+    navigator.notification.confirm(
+        'Desea cerrar la applicación?',  // message
+        exitFromApp,              // callback to invoke with index of button pressed
+        'Salir',            // title
+        'Cancelar,Si'         // buttonLabels
+    );
+}
+function exitFromApp(buttonIndex) {
+  if (buttonIndex==2){
+    navigator.app.exitApp();
+    }
+}
 //Funcion que detecta si se encuentra en la pagina de inicio 
 //y ademas se presiona la tecla "atras"
 document.addEventListener("backbutton", function(e){
