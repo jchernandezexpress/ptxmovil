@@ -27,10 +27,10 @@ public class CordovaApp extends CordovaActivity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-        super.setIntegerProperty("splashscreen", R.drawable.splash);
+        //super.setIntegerProperty("splashscreen", R.drawable.splash);
         super.onCreate(savedInstanceState);
         super.init();
         // Set by <content src="index.html" /> in config.xml
-        loadUrl(launchUrl,5000);
+        loadUrl(launchUrl);
     }
 }
