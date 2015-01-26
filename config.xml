@@ -40,7 +40,7 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
     <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="SplashScreenDelay" value="8000" />
     <!--PLUGINS -->
     <!-- <gap:plugin name="org.apache.cordova.battery-status" /> -->
     <gap:plugin name="org.apache.cordova.camera" />
@@ -60,6 +60,7 @@
     <gap:plugin name="org.apache.cordova.media" /> -->
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
+    <gap:plugin name="org.apache.cordova.dialogs"/>
     <gap:plugin name="org.apache.cordova.vibration" />
     <gap:plugin name="nl.x-services.plugins.toast" />
     <icon src="icon.png" />
