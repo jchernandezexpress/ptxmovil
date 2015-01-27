@@ -29,8 +29,8 @@ public class CordovaApp extends CordovaActivity
     {
         //super.setIntegerProperty("splashscreen", R.drawable.splash);
         super.onCreate(savedInstanceState);
-        super.init();
+        //super.init();
         // Set by <content src="index.html" /> in config.xml
-        loadUrl(launchUrl,10000);
+        loadUrl(launchUrl,3000);
     }
 }

@@ -1,9 +1,12 @@
 /*Documento JS que contiene funciones necesarias
  para el funcionamiento correcto de la aplicacion*/
+ //Variable que contiene la url del servidor
+ var server = 'http://187.141.146.62:7001/';
+ var uri ='';
 //Funcion que obtiene el ultimo evento de un rastreo
 function ultimoRastreo(rastreo){
 	var resultado = "";
-	var url= "http://192.168.10.45:7001/ptxws/rest/api/v1/guia/historico/ultimoevento/";
+	var uri= "ptxws/rest/api/v1/guia/historico/ultimoevento/";
 	if(rastreo !=""){
 		$.ajax({
 				crossOrigin: true,
@@ -11,7 +14,7 @@ function ultimoRastreo(rastreo){
 				type:"GET",
 				timeout:60000,
 				jsonp: "callback",
-				url: url+rastreo,
+				url: server + uri+rastreo,
 				dataType: "jsonp",
 				jsonpCallback: 'Resultado',
 				success: function(datos) {
@@ -30,7 +33,7 @@ function ultimoRastreo(rastreo){
 							respuesta += "<img src='./img/pasos/"+datos[llave].eventoImagen+"' alt='"+datos[llave].eventoDescripcion+"'/>";
 							respuesta += "<p class='card-title'><strong>Guía: </strong>" + rastreo + "</p>";
 							respuesta += "<p><strong>" + datos[llave].status + "</strong></p>";
-							respuesta += "<p class='url'><a>" + datos[llave].fecha + " - " + datos[llave].hora + "</a></p>";
+							respuesta += "<p class='url'><a>" + datos[llave].fecha + " - " + datos[llave].hora + "</a></p></div>";
 							respuesta += "</li>";
 						});
 						$("#busqueda").append(respuesta).listview('refresh');
@@ -64,7 +67,7 @@ function ultimoRastreo(rastreo){
 //Funcion que obtiene el historial de un rastreo
 function historialRastreo(rastreo){
 	var resultado = "";
-	var url= "http://192.168.10.45:7001/ptxws/rest/api/v1/guia/historico/";
+	var uri= "ptxws/rest/api/v1/guia/historico/";
 	if(rastreo !=""){
 		$("#ul_historico").empty();
 		$.ajax({
@@ -73,7 +76,7 @@ function historialRastreo(rastreo){
 				type:"GET",
 				timeout:60000,
 				jsonp: "callback",
-				url: url+rastreo,
+				url: server + uri +rastreo,
 				dataType: "jsonp",
 				jsonpCallback: 'Resultado',
 				success: function(datos) {
@@ -85,7 +88,7 @@ function historialRastreo(rastreo){
 						respuesta += "<div class='card'>";
 						respuesta += "<p class='card-title'>" + datos[llave].sucursal + "</p>";
 						respuesta += "<p><strong>" + datos[llave].status + "</strong></p>";
-						respuesta += "<p class='url'><a>" + datos[llave].fecha + " - " + datos[llave].hora + "</a></p>";
+						respuesta += "<p class='url'><a>" + datos[llave].fecha + " - " + datos[llave].hora + "</a></p></div>";
 						respuesta += "</li>";
 					});
 					$("#ul_historico").append(respuesta);
@@ -138,14 +141,53 @@ document.addEventListener("backbutton", function(e){
         navigator.app.backHistory()
     }
 }, false);
-
-//Funcion que se desencadena cuando presionan el boton regresar de la pagina historial
-$("#hist_btn_back").on('tap',function(){
-	navigator.notification.alert(
-		'Has presionado el boton regresar',
-		null,
-		'Regresando',
-		['OK']
-		);
-	navigator.app.backHistory();
-});
+/*Funcion que obtiene todas las sucursales
+La información obtenida se debera mostras en un ListView
+Poniendo como cabecera cada estado y posteriormente agregar cada ciudad
+a su cabecera correspondiente.
+*/
+function verSucursales(){
+	var resultado = "";
+	var uri= "ptxws/rest/api/v1/sucursal";
+	$.ajax({
+			crossOrigin: true,
+			beforeSend: function() { $.mobile.loading( "show" ); },
+			type:"GET",
+			timeout:60000,
+			jsonp: "callback",
+			url: server + uri,
+			dataType: "jsonp",
+			jsonpCallback: 'Resultado',
+			success: function(datos) {
+				var info = datos;
+				var respuesta ="";
+				if(info != ""){
+					$.each(datos, function(llave){
+					respuesta += "<li>";
+					respuesta += "<div class='card'>";
+					respuesta += "<p class='card-title'>" + datos[llave].nombre + "</p>";
+					respuesta += "<p><strong>Telefono: " + datos[llave].telefono1 + "</strong></p>";
+					respuesta += "<p class='url'><a>Calle: " + datos[llave].calle + " # " + datos[llave].numero + "</a></p></div>";
+					respuesta += "</li>";
+				});
+				$("#ul_sucursales").append(respuesta).listview('refresh');
+				//Oculto el icono de cargando
+				$.mobile.loading( "hide" );
+				}
+				else{
+					window.plugins.toast.showLongBottom('!No se encontraron resultados!');
+				}
+			},
+			error: function(jqXHR,text_status,strError){
+				$.mobile.loading( "hide" );
+				if(jqXHR.status == 404){
+					window.plugins.toast.showLongBottom('!Error: 404\nPor vafor revisa tu conexión!');
+				}else if(jqXHR.status == 500){
+					window.plugins.toast.showLongBottom('!Error: 500\nEl servidor no esta listo!');
+				}
+				else{
+					alert("Error: "+ jqXHR.status + "\n"+jqXHR.error);
+				}
+			}
+		  });
+}

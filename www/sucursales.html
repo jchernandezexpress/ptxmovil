@@ -75,6 +75,25 @@
         <!-- JS INICIO-->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <!--JS-->
+        <script src="js/personalizados/utiles.js" type="text/javascript"></script>
+        <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                //Funcion que obtiene los datos del rastreo
+                alert("Documento listo");
+                verSucursales();
+                $("input[data-type='search']").keyup(function(e){
+                    var rastreo = $("input[data-type='search']").val();
+                    var tecla = (e.keyCode ? e.keyCode : e.which);
+                    if(tecla==13)
+                    {
+                        alert("Aqui filtraremos la sucursal");
+                    }
+                });//Termina la funcion input[data-type['search'].keyup
+            });
+        </script>
         <!-- JS FIN -->
         <title>Paquetexpress</title>
     </head>
@@ -82,14 +101,14 @@
         <!-- ************************************************** -->
         <!-- PAGINA HOME -->
         <!-- ************************************************** -->
-        <div data-role = "page" id="inicio" data-theme="d">
+        <div data-role = "page" id="sucursales" data-theme="d">
             <!-- ************************************************** -->
             <!--HOME HEADER INICIO-->
             <!-- ************************************************** -->
             <div data-role="header" style="overflow:hidden;" data-position="fixed" data-tap-toggle="false" data-theme="b">
                 <nav data-role="navbar" data-inset="true">
                     <div class="ui-bar">
-                        <button href="#" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-icon-info ui-btn-icon-notext">
+                        <button href="inicio.html" class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-icon-info ui-btn-icon-notext">
                             Ayuda
                         </button>
 
@@ -110,7 +129,7 @@
             <!--HOME MAIN INICIO-->
             <!-- ************************************************** -->
             <div role="main" class="ui-content">
-                <ul id="busqueda" data-role="listview" data-filter="true" data-filter-placeholder="Ingrese Rastreo, Guía o Delivery" data-theme="a">
+                <ul id="ul_sucursales" data-role="listview" data-filter="true" data-filter-placeholder="Ingrese ciudad o estado" data-theme="a">
                 <!--<li data-icon="carat-r-custom" id='21134214342'>
                     <a href="#historial"><img src="img/elements/rastreo-(caja).png" alt="" class="ui-li-icon">
                         <p class="ui-li-aside bg-green centered"> Prueba <strong> 1:24</strong>PM</p>
@@ -130,9 +149,9 @@
             <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-theme="b">
                 <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
                     <ul>
-                        <li><a href="#inicio" id="rastreos" data-icon="custom" class='ui-btn-active ui-state-persist'>Rastreos</a>
+                        <li><a href="index.html" id="rastreos" data-icon="custom">Rastreos</a>
                         </li>
-                        <li><a href="sucursales.html" id="sucursales" data-icon="custom">Sucursales</a>
+                        <li><a href="#" id="sucursales" data-icon="custom" class='ui-btn-active ui-state-persist'>Sucursales</a>
                         </li>
                         <li><a href="#" id="notificar" data-icon="custom">Notificar</a>
                         </li>
@@ -148,117 +167,5 @@
 
         <!-- ************************************************** -->
         </div><!--HOME FINAL-->
-        <!-- ************************************************** -->
-
-        <!-- ************************************************** -->
-        <!-- PAGINA HISTORIAL -->
-        <!-- ************************************************** -->
-        <div data-role = "page" id="historial" data-theme="d">
-            <!-- ************************************************** -->
-            <!--HISTORIAL INICIO-->
-            <!-- ************************************************** -->
-            <div data-role="header" style="overflow:hidden;" data-position="fixed" data-tap-toggle="false" data-theme="b">
-                <nav data-role="navbar" data-inset="true">
-                    <div class="ui-bar">
-                        <a id="hist_btn_back"class="ui-btn-left ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-icon-back ui-btn-icon-notext" data-role="button">
-                            Regresar
-                        </a>
-
-                        <p class="centered">
-                            <img src="img/logo/logo-inv.svg" style="max-width:135px; max-height:40px;"/>
-                        </p>
-
-                        <button href="#inicio" class="ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-icon-camera ui-btn-icon-notext">
-                            Escanear
-                        </button>
-                    </div>
-                </nav>
-            <!-- ************************************************** -->
-            </div><!--HISTORIAL: HEADER FIN-->
-            <!-- ************************************************** -->
-
-            <!-- ************************************************** -->
-            <!--HISTORIAL MAIN INICIO-->
-            <!-- ************************************************** -->
-            <div role="main" class="ui-content">
-                <ul class="gNow" id="ul_historico">
-                    <!--AQUI VAN LAS TARJETAS DEL HISTORIAL -->
-                </ul>
-            <!-- ************************************************** -->
-            </div><!--HISTORIAL: MAIN FINAL -->
-            <!-- ************************************************** -->
-
-            <!-- ************************************************** -->
-            <!-- HISTORIAL: FOOTER INICIO-->
-            <!-- ************************************************** -->
-            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-theme="b">
-                <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
-                    <ul>
-                        <li><a href="#inicio" id="rastreos" data-icon="custom">Rastreos</a>
-                        </li>
-                        <li><a href="sucursales.html" id="sucursales" data-icon="custom">Sucursales</a>
-                        </li>
-                        <li><a href="#" id="notificar" data-icon="custom">Notificar</a>
-                        </li>
-                        <li><a href="#" id="cotizador" data-icon="custom">Cotizador</a>
-                        </li>
-                        <li><a href="#" id="ayuda" data-icon="custom">Ayuda</a>
-                        </li>
-                    </ul>
-                </div>
-            <!-- ************************************************** -->
-            </div><!-- HOME: FOOTER INICIO-->
-            <!-- ************************************************** -->
-
-        <!-- ************************************************** -->
-        </div><!--HOME FINAL-->
-        <!-- ************************************************** -->
-        <!--JS-->
-        <script src="js/personalizados/utiles.js" type="text/javascript"></script>
-        <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            app.initialize();
-            $(document).ready(function(){
-                //Funcion que obtiene los datos del rastreo
-                $("input[data-type='search']").keyup(function(e){
-                    var rastreo = $("input[data-type='search']").val();
-                    var tecla = (e.keyCode ? e.keyCode : e.which);
-                    if(tecla==13)
-                    {
-                        ultimoRastreo(rastreo);
-                        $("#busqueda").listview('refresh');
-                    }
-                });//Termina la funcion input[data-type['search'].keyup
-                //Evento que se detona cuando se selecciona un elemento de la lista de rastreos
-                $("#busqueda").click(function (){
-                    var rastreo = $('ul#busqueda li:first').attr('id');
-                    window.localStorage.setItem("rastreo", rastreo);
-                    historialRastreo(rastreo);     
-                    $.mobile.loading( "show" );
-                   
-                });
-            });//Find del Document ready
-            //Eveto que se desencadena antes de mostrar la pagina "historial"
-            $(document).on('pagebeforeshow', '#historial', function(){ 
-                var rastreo = window.localStorage.getItem("rastreo");
-                $.mobile.loading( "show" );
-                 
-            });
-            //Evento que se desencadena cuando la pagina "historial" esta cargada
-            $(document).on("pageshow","#historial",function(){
-                
-            });
-            //Funcion que se desencadena cuando presionan el boton regresar de la pagina historial
-            $("#hist_btn_back").on('tap',function(){
-                navigator.notification.alert(
-                    'Has presionado el boton regresar',
-                    null,
-                    'Regresando',
-                    ['OK']
-                    );
-                navigator.app.backHistory();
-            });
-        </script>
     </body>
 </html>
