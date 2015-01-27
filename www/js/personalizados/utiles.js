@@ -27,6 +27,7 @@ function ultimoRastreo(rastreo){
 							respuesta +="<span class='green'>"+rastreo+"</span></a></li>";*/
 							respuesta += "<li id="+rastreo+">";
 							respuesta += "<div class='card'>";
+							respuesta += "<img src='./img/pasos/"+datos[llave].eventoImagen+"' alt='"+datos[llave].eventoDescripcion+"'/>";
 							respuesta += "<p class='card-title'><strong>Guía: </strong>" + rastreo + "</p>";
 							respuesta += "<p><strong>" + datos[llave].status + "</strong></p>";
 							respuesta += "<p class='url'><a>" + datos[llave].fecha + " - " + datos[llave].hora + "</a></p>";
@@ -137,3 +138,14 @@ document.addEventListener("backbutton", function(e){
         navigator.app.backHistory()
     }
 }, false);
+
+//Funcion que se desencadena cuando presionan el boton regresar de la pagina historial
+$("#hist_btn_back").on('tap',function(){
+	navigator.notification.alert(
+		'Has presionado el boton regresar',
+		null,
+		'Regresando',
+		['OK']
+		);
+	navigator.app.backHistory();
+});
